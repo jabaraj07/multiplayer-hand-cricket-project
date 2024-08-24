@@ -5,6 +5,7 @@
   .main-div{
     display: flex;
     justify-content: center;
+    /* background-color: aqua; */
     /* height: 100vh; */
 }
 #first-box,#second-box{
@@ -30,8 +31,14 @@
   /* border: 5px solid black; */
   display: flex;
   justify-content: center;
+  /* background-color: blue; */
   margin-top: 20px;
 }
+/* .displaydiv{
+    transform: translate(-250px,-160px);
+    background-color: beige;
+    height: 150px;
+} */
 .button-div-sub{
   width: 300px;
   background-color: yellow;
@@ -87,8 +94,9 @@ th,td{
 .fulldiv{
   /* background-color: aqua; */
   display: flex;
+  flex-wrap: wrap;
   padding-top: 10px;
-}
+} 
 .second,.second1{
   width: 150px;
   height: 100px;
@@ -99,4 +107,35 @@ th,td{
 }
 #reducedtarget{
   display: none;
+}
+
+@media screen and (max-width:1000px){
+    .main-div{
+        display: flex;
+        justify-content: center;
+    }
+    .button-div{
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+      }
+      .tablediv{
+        width: 100%;
+      }
+      .displaydiv{
+        font-size: 15px;
+        margin-top: 30px;
+        margin-left: 150px;
+      }
+}
+@media screen and (max-width:750px){
+    .tablediv{
+        width: 100%;
+        margin: 10px 15px;
+      }
+      .displaydiv{
+        font-size: 13px;
+        margin-top: 30px;
+        margin-left: 20px;
+      }
 }
