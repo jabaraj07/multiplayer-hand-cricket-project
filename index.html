@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HAND CRICKET MULTIPLAYER</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="main-div" id="main-div">
+        <div id="first-box"></div>
+        <div id="second-box"></div>
+        <button class="second" id="second" onclick="reset()">RESET</button>
+        <button class="second1" id="second1" onclick="secondplay()">START 2ND INNINGS</button>
+    </div>
+
+    <div class="button-div">
+      <div class="button-div-sub">
+        <button id="buttn" class="btn" onclick="updatebox1('1')">1</button>
+        <button id="buttn" class="btn" onclick="updatebox1('2')">2</button>
+        <button id="buttn" class="btn" onclick="updatebox1('3')">3</button>
+        <button id="buttn" class="btn" onclick="updatebox1('4')">4</button>
+        <button id="buttn" class="btn" onclick="updatebox1('5')">5</button>
+        <button id="buttn" class="btn" onclick="updatebox1('6')">6</button>
+        <!-- <button id="buttn" class="btn" onclick="updatebox1('7')">7</button>
+        <button id="buttn" class="btn" onclick="updatebox1('8')">8</button>
+        <button id="buttn" class="btn" onclick="updatebox1('9')">9</button>
+        <button id="buttn" class="btn" onclick="updatebox1('0')">0</button> -->
+      </div>
+
+    </div >
+
+    <div class="fulldiv">
+
+
+      <div class="tablediv">
+        <table id="datatable">
+          <thead>
+            <tr>
+              <th>batsamnscore</th>
+              <th>ballsfaced</th>
+            </tr>
+          </thead>
+          <tbody id="resultbody">
+            
+          </tbody>
+        </table>
+        <div id="resultdiv">
+          <!-- target get display here -->
+        </div>
+      </div>
+
+      <div>
+        <div id="targetdiv"><h1>TARGET: <span id="target"></span></h1></div>
+        <div id="reducedtarget"><h1>RUNS TO WIN: <span id="reducedtargetvalue"></span></h1></div>
+        <div><h1>BALLS LEFT: <span id="ballsleft">60</span></h1></div>
+        <div><h1>WICKETS REMAINING: <span id="wicketsleft">10</span></h1></div>
+      </div>
+
+    </div>
+    <script src="./script.js"></script>
+</body>
+</html>

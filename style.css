@@ -1,0 +1,102 @@
+*{
+    margin: 0;
+    padding: 0;
+  }
+  .main-div{
+    display: flex;
+    justify-content: center;
+    /* height: 100vh; */
+}
+#first-box,#second-box{
+    width: 100px;
+    height: 100px;
+    border: 2px solid black;
+    margin-left: 10px;
+    font-size: 50px;
+    text-align: center;
+    text-justify:auto;
+}
+/* #playbtn{
+  width: 100px;
+  height: 100px;
+  margin-left: 10px;
+  display: flex;
+  justify-content: center;
+} */
+.button-div{
+  /* background-color: red; */
+  /* width: 500px; */
+  /* height: 500px; */
+  /* border: 5px solid black; */
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+.button-div-sub{
+  width: 300px;
+  background-color: yellow;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.btn{
+  width: 80px;
+  height: 50px;
+  padding: 15px 10px;
+  margin: 10px 5px;
+  font-size: 20px;
+  border-radius: 10px;
+}
+#datatable{
+  border-collapse: collapse;
+  text-align: center;
+  background-color: red;
+  margin-top: 20px;
+  font-size: 20px;
+}
+.tablediv{
+  /* background-color: yellow; */
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+th,td{
+  border-collapse: collapse;
+  border: 2px solid black;
+  width: 350px;
+}
+.lifecount{
+  width: 100px;
+  height: 100px;
+  border: 2px solid black;
+  margin-left: 10px;
+}
+#lifevalue{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  font-size: 25px;
+}
+
+#resultdiv{
+  font-size: 50px;
+}
+.fulldiv{
+  /* background-color: aqua; */
+  display: flex;
+  padding-top: 10px;
+}
+.second,.second1{
+  width: 150px;
+  height: 100px;
+  margin-left: 10px;
+  font-size: 15px;
+  border-radius: 10px;
+  display: none;
+}
+#reducedtarget{
+  display: none;
+}
