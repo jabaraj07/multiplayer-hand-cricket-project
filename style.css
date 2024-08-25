@@ -107,6 +107,26 @@ th,td{
 }
 #reducedtarget{
   display: none;
+  margin-bottom: 15px;
+  font-size: 15px;
+}
+.displaydiv{
+  padding: 20px;
+}
+#targetdiv{
+  margin-bottom: 10px;
+  font-size: 15px;
+}
+#ballsvalue{
+  margin-bottom: 10px;
+  font-size: 15px;
+  width: 250px;
+  /* background-color: rgb(186, 186, 43); */
+}
+#wicketsvalue{
+  font-size: 15px;
+  width: 250px;
+  /* background-color: rgb(186, 186, 43); */
 }
 
 @media screen and (max-width:1000px){
@@ -139,3 +159,4 @@ th,td{
         margin-left: 20px;
       }
 }
+

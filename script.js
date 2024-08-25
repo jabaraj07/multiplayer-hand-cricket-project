@@ -42,15 +42,55 @@ totalballs = 60
       box1.innerText = buttontext
       box2.innerText = box2value
 
+      if(life== 0 ||  totalballs == 0){
 
-      if(buttonvalue == box2value || totalballs == 0){
+        if(buttonvalue != box2value){
+          resultdisplay()
+          reducedtarget.style.display = "inline-block"
+          runstowin  = totalscore
+          reducedtargetvalue.innerText=runstowin
+          innings = 2
+          totalballs = 60
+          life=10
+          secondinningsbutton.style.display = 'inline-block'
+          isGameOver = true
+
+  
+          resultbody.innerHTML +=`
+          <tr>
+          <td>${count}</td>
+          <td>${balls}</td>
+          ` 
+          count = 0
+          balls = 0
+
+          resultdisplay()
+          reducedtarget.style.display = "inline-block"
+          runstowin  = totalscore
+          reducedtargetvalue.innerText=runstowin
+          innings = 2
+          totalballs = 60
+          life=10
+          secondinningsbutton.style.display = 'inline-block'
+          isGameOver = true
+        }
+        else if(buttonvalue == box2value){
+
+        }
+      }
+
+      
+      if(buttonvalue == box2value){
     
-        alert("you loose your wicket")
-        resultbody.innerHTML +=`
-        <tr>
-        <td>${count}</td>
-        <td>${balls}</td>
-        ` 
+        count = count - `${buttonvalue}`
+        totalscore = totalscore-`${buttonvalue}`
+
+          alert("you loose your wicket")
+          resultbody.innerHTML +=`
+          <tr>
+          <td>${count}</td>
+          <td>${balls}</td>
+          ` 
         count = 0
         balls = 0
         life--
@@ -64,7 +104,7 @@ totalballs = 60
           innings = 2
           totalballs = 60
           life=10
-          resultbody.innerHTML = ''
+          // resultbody.innerHTML = ''
           secondinningsbutton.style.display = 'inline-block'
           isGameOver = true
           // secondinnings.style.display="inline-block"
@@ -78,6 +118,8 @@ totalballs = 60
         box1.innerText  = buttonvalue
         box2.innerText  = box2value
         runstowin -= buttonvalue
+        console.log(typeof(runstowin));
+        
         count = count + buttonvalue
 
         reducedtargetvalue.innerText = `${runstowin}`
@@ -102,6 +144,11 @@ totalballs = 60
         }
 
         if(buttonvalue == box2value || totalballs == 0){
+
+          count = count - `${buttonvalue}`
+           runstowin=parseInt(runstowin)+parseInt(buttonvalue)
+           reducedtargetvalue.innerText = `${runstowin}`
+
           // alert("2nd innings loose your wicket")
           resultbody.innerHTML +=`
           <tr>
@@ -168,6 +215,7 @@ function updatebox1(value){
     isGameOver = false
     secondinningsbutton.style.display = 'none'
     result.innerText = ''
+    resultbody.innerHTML = ''
     box1.innerText = 0
     box2.innerText = 0
     ballsleft.innerText = 60
