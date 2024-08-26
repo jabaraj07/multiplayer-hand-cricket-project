@@ -126,6 +126,7 @@ th,td{
 #wicketsvalue{
   font-size: 15px;
   width: 250px;
+  margin-bottom: 5px;
   /* background-color: rgb(186, 186, 43); */
 }
 

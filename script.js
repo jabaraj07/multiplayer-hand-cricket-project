@@ -13,6 +13,7 @@ let isGameOver = false;
 let resetbutton = document.getElementById("second")
 let targetdiv = document.getElementById("targetdiv")
 let secondinningsbutton = document.getElementById("second1")
+let extras = document.getElementById("extras")
 
 count = 0
 life=10
@@ -21,6 +22,10 @@ totalscore = 0
 totalballscount=0
 innings = 1
 totalballs = 60
+Fourcount = 0
+Sixcount = 0
+freeruns = 0
+
 
   function handlenumber(value){
 
@@ -31,9 +36,23 @@ totalballs = 60
     totalballs--
     ballsleft.innerText = totalballs
     balls ++
-    let box2value=Math.floor(Math.random()*6)+1
+    let box2value=Math.floor(Math.random()*7)
     buttontext = value
     buttonvalue = parseInt(buttontext)
+
+    if(buttonvalue == 4){
+      Fourcount++
+
+    }
+
+    if(buttonvalue == 6 ){
+      Sixcount++
+    }
+
+    if(box2value==0 ){
+      freeruns++
+      extras.innerText = freeruns
+    }
 
     if(innings == 1){
       count = count + buttonvalue
@@ -42,7 +61,7 @@ totalballs = 60
       box1.innerText = buttontext
       box2.innerText = box2value
 
-      if(life== 0 ||  totalballs == 0){
+      if(life== 0 ||  totalballs == 50){
 
         if(buttonvalue != box2value){
           resultdisplay()
@@ -60,13 +79,20 @@ totalballs = 60
           <tr>
           <td>${count}</td>
           <td>${balls}</td>
+          <td>${Fourcount}</td>
+          <td>${Sixcount}</td>
+          <td>${strikerate}</td>
           ` 
           count = 0
           balls = 0
 
           resultdisplay()
+          num1 = `${(totalscore)}`
+          num2 = `${(freeruns)}`
+          finalscore = `${parseInt(num1) + parseInt(num2)}` 
+
           reducedtarget.style.display = "inline-block"
-          runstowin  = totalscore
+          runstowin  = finalscore
           reducedtargetvalue.innerText=runstowin
           innings = 2
           totalballs = 60
@@ -74,36 +100,59 @@ totalballs = 60
           secondinningsbutton.style.display = 'inline-block'
           isGameOver = true
         }
-        else if(buttonvalue == box2value){
-
-        }
+        num1 = `${(totalscore)}`
+        num2 = `${(freeruns)}`
+        finalscore = `${parseInt(num1) + parseInt(num2)}`        
       }
 
       
       if(buttonvalue == box2value){
+        if(buttonvalue==4){
+          Fourcount--
+        }
+
+        if(buttonvalue==6){
+          Sixcount--
+        }
     
         count = count - `${buttonvalue}`
         totalscore = totalscore-`${buttonvalue}`
+
+        strikerate = ((count/balls)*100).toFixed(0)
+
+        finalscore = `${parseInt(totalscore)}`+`${parseInt(freeruns)}`
+
 
           alert("you loose your wicket")
           resultbody.innerHTML +=`
           <tr>
           <td>${count}</td>
           <td>${balls}</td>
+          <td>${Fourcount}</td>
+          <td>${Sixcount}</td>
+          <td>${strikerate}</td>
+
           ` 
         count = 0
         balls = 0
+        Fourcount = 0
+        Sixcount = 0
         life--
         wicketsleft.innerText = life
 
-        if(life== 0 ||  totalballs == 0){
+        if(life== 0 ||  totalballs == 50){
+          num1 = `${(totalscore)}`
+          num2 = `${(freeruns)}`
+          finalscore = `${parseInt(num1) + parseInt(num2)}` 
+
           resultdisplay()
           reducedtarget.style.display = "inline-block"
-          runstowin  = totalscore
+          runstowin  = finalscore
           reducedtargetvalue.innerText=runstowin
           innings = 2
           totalballs = 60
           life=10
+
           // resultbody.innerHTML = ''
           secondinningsbutton.style.display = 'inline-block'
           isGameOver = true
@@ -190,16 +239,21 @@ totalballs = 60
     balls = 0
     totalscore = 0
     totalballscount=0
+    Fourcount = 0
+    Sixcount = 0
     innings = 1
     resetbutton.style.display="none"
   }
 
 function resultdisplay(){
-  result.innerText = `second innings target is ${totalscore}`
+  num1 = `${(totalscore)}`
+  num2 = `${(freeruns)}`
+  finalscore = `${parseInt(num1) + parseInt(num2)}` 
+  result.innerText = `second innings target is ${finalscore}`
   let head = document.createElement('h1')
   result.appendChild(head)
   let target = document.getElementById("target")
-  target.innerText = totalscore
+  target.innerText = finalscore
 }
 
 function updatebox1(value){
@@ -220,6 +274,8 @@ function updatebox1(value){
     box2.innerText = 0
     ballsleft.innerText = 60
     wicketsleft.innerText = 10
+    Fourcount = 0
+    Sixcount = 0
     }
 
 
