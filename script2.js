@@ -18,14 +18,14 @@ let extras = document.getElementById("extras")
 let headortail = document.getElementById("headortail")
 let tosssection = document.getElementById("toss-section")
 let batsection = document.getElementById("batsection")
-let playarea = document.getElementById("complete-div")
-
+let playareasection = document.getElementById("complete-div")
+tosssection.className = 'toss-section'
 count = 0
 life=10
 balls = 0
 totalscore = 0
 totalballscount=0
-innings = 1
+// innings = 1
 totalballs = 60
 Fourcount = 0
 Sixcount = 0
@@ -277,15 +277,16 @@ freeruns = 0
 
         }
         if(life == 0 || totalballs == 0){
-          if(runstowin<0){
-            result.innerText = `PLAYER 1 WON BY 0 RUNS`
+          if(runstowin >0){
+            // result.innerText = `PLAYER 1 WON BY 0 RUNS`
+            result.innerText = `PLAYER 1 WON BY ${runstowin} RUNS`
+            let head = document.createElement('h1')
+            result.appendChild(head)
+            isGameOver = true;
+            resetbutton.style.display="inline-block"
+            headortail.innerHTML = ''
           }
-          result.innerText = `PLAYER 1 WON BY ${runstowin} RUNS`
-          let head = document.createElement('h1')
-          result.appendChild(head)
-          isGameOver = true;
-          resetbutton.style.display="inline-block"
-          headortail.innerHTML = ''
+
         }
       }
       else if(innings == 3){
@@ -478,20 +479,24 @@ freeruns = 0
 
         }
         if(life == 0 || totalballs == 0){
-          if(runstowin<0){
-            result.innerText = `PLAYER 1 WON BY 0 RUNS`
+          if(runstowin>0){
+            // result.innerText = `PLAYER 1 WON BY 0 RUNS`
+            result.innerText = `PLAYER 1 WON BY ${runstowin} RUNS`
+            let head = document.createElement('h1')
+            result.appendChild(head)
+            isGameOver = true;
+            resetbutton.style.display="inline-block"
+            headortail.innerHTML = ''
           }
-          result.innerText = `PLAYER 1 WON BY ${runstowin} RUNS`
-          let head = document.createElement('h1')
-          result.appendChild(head)
-          isGameOver = true;
-          resetbutton.style.display="inline-block"
-          headortail.innerHTML = ''
+
         }
       }
     }
   
-  function reset(){
+  function reset (){
+    playareasection.style.display='none'
+    tosssection.style.display ='inline-block'
+
     isGameOver = false;
     box1.innerText = 0
     box2.innerText = 0
@@ -509,12 +514,10 @@ freeruns = 0
     totalballscount=0
     Fourcount = 0
     Sixcount = 0
-    innings = 1
+    // innings = 1
     resetbutton.style.display="none"
-    freeruns = 0
-    extras.innerText = 0
-    tosssection.style.display ="inline-block"
-    playarea.style.display = "none"
+    // freeruns = 0
+    // extras.innerText = 0
       }
 
 function resultdisplay(finalscore){
@@ -549,8 +552,8 @@ function updatebox1(value){
     wicketsleft.innerText = 10
     Fourcount = 0
     Sixcount = 0
-    freeruns = 0
-    extras.innerText = freeruns
+    // freeruns = 0
+    // extras.innerText = freeruns
     }
 
     function secondinnings1(){
@@ -569,8 +572,8 @@ function updatebox1(value){
         wicketsleft.innerText = 10
         Fourcount = 0
         Sixcount = 0
-        freeruns = 0
-        extras.innerText = freeruns
+        // freeruns = 0
+        // extras.innerText = freeruns
     }
 
     function toss(value){
@@ -604,13 +607,13 @@ function updatebox1(value){
         if(randomchoose == "Bat" ){
             alert("Opponent choose to bat")
             tosssection.style.display ="none"
-            playarea.style.display = "inline-block"
+            playareasection.style.display = "inline-block"
             innings = 3
           }
           else if( randomchoose == "Bowl"){
             alert("Opponent choose to bowl")
             tosssection.style.display ="none"
-            playarea.style.display = "inline-block"
+            playareasection.style.display = "inline-block"
             innings = 1
           }
     }
@@ -626,12 +629,12 @@ function updatebox1(value){
       
       if(opt == "bat" ){
         tosssection.style.display ="none"
-        playarea.style.display = "inline-block"
+        playareasection.style.display = "inline-block"
         innings = 1
       }
       else if( opt == "bowl"){
         tosssection.style.display ="none"
-        playarea.style.display = "inline-block"
+        playareasection.style.display = "inline-block"
         innings = 3
       }
 
