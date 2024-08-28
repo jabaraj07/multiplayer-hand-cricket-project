@@ -8,62 +8,74 @@
 </head>
 
 <body>
+  <div class="toss-section" id="toss-section">
+    <h1 style="text-align: center;">choose head or tail</h1>
+    <div class="headortail-div" ><button class="headbtn" onclick="toss('head')">HEAD</button><SPan></SPan><button class="tailbtn" onclick="toss('tail')">TAIL</button></div>
+    <div class="result-div-for-choice"><h4 id="headortail"></h4></div>
+  </div>
+
+  <div class="complete-div" id="complete-div">
     <div class="main-div" id="main-div">
-        <div id="first-box"></div>
-        <div id="second-box"></div>
-        <button class="second" id="second" onclick="reset()">RESET</button>
-        <button class="second1" id="second1" onclick="secondplay()">START 2ND INNINGS</button>
+      <div id="first-box"><img class="first-box-image" src="./image_processing20200828-13093-tq49rw.png" alt=""></div>
+      <div id="second-box"><img class="first-box-image" src="./vector-cricket-ball-illustration.jpg" alt=""></div>
+      <button class="second" id="second" onclick="reset()">RESET</button>
+      <button class="second1" id="second1" onclick="secondplay()">START 2ND INNINGS</button>
+      <button class="second2" id="second2" onclick="secondinnings1()">START 2ND INNINGS</button>
+  </div>
+
+  <div class="button-div">
+    <div class="button-div-sub">
+      <button id="buttn" class="btn" onclick="updatebox1('1')">1</button>
+      <button id="buttn" class="btn" onclick="updatebox1('2')">2</button>
+      <button id="buttn" class="btn" onclick="updatebox1('3')">3</button>
+      <button id="buttn" class="btn" onclick="updatebox1('4')">4</button>
+      <button id="buttn" class="btn" onclick="updatebox1('5')">5</button>
+      <button id="buttn" class="btn" onclick="updatebox1('6')">6</button>
+      <!-- <button id="buttn" class="btn" onclick="updatebox1('7')">7</button>
+      <button id="buttn" class="btn" onclick="updatebox1('8')">8</button>
+      <button id="buttn" class="btn" onclick="updatebox1('9')">9</button>
+      <button id="buttn" class="btn" onclick="updatebox1('0')">0</button> -->
     </div>
 
-    <div class="button-div">
-      <div class="button-div-sub">
-        <button id="buttn" class="btn" onclick="updatebox1('1')">1</button>
-        <button id="buttn" class="btn" onclick="updatebox1('2')">2</button>
-        <button id="buttn" class="btn" onclick="updatebox1('3')">3</button>
-        <button id="buttn" class="btn" onclick="updatebox1('4')">4</button>
-        <button id="buttn" class="btn" onclick="updatebox1('5')">5</button>
-        <button id="buttn" class="btn" onclick="updatebox1('6')">6</button>
-        <!-- <button id="buttn" class="btn" onclick="updatebox1('7')">7</button>
-        <button id="buttn" class="btn" onclick="updatebox1('8')">8</button>
-        <button id="buttn" class="btn" onclick="updatebox1('9')">9</button>
-        <button id="buttn" class="btn" onclick="updatebox1('0')">0</button> -->
+  </div >
+
+  <div class="fulldiv">
+
+
+    <div class="tablediv">
+      <table id="datatable">
+        <thead>
+          <tr>
+            <th>batsamn Name</th>
+            <th>batsamn score</th>
+            <th>ballsfaced</th>
+            <th>4S</th>
+            <th>6S</th>
+            <th>Strike Rate </th>
+
+          </tr>
+        </thead>
+        <tbody id="resultbody">
+          
+        </tbody>
+      </table>
+      <div id="resultdiv">
+        <!-- target get display here -->
       </div>
-
-    </div >
-
-    <div class="fulldiv">
-
-
-      <div class="tablediv">
-        <table id="datatable">
-          <thead>
-            <tr>
-              <th>batsamn score</th>
-              <th>ballsfaced</th>
-              <th>4S</th>
-              <th>6S</th>
-              <th>Strike Rate </th>
-
-            </tr>
-          </thead>
-          <tbody id="resultbody">
-            
-          </tbody>
-        </table>
-        <div id="resultdiv">
-          <!-- target get display here -->
-        </div>
-      </div>
-
-      <div class="displaydiv">
-        <div id="targetdiv"><h1>TARGET: <span id="target"></span></h1></div>
-        <div id="reducedtarget"><h1>RUNS TO WIN: <span id="reducedtargetvalue"></span></h1></div>
-        <div id="ballsvalue"><h1>BALLS LEFT: <span id="ballsleft">60</span></h1></div>
-        <div id="wicketsvalue"><h1>WICKETS REMAINING: <span id="wicketsleft">10</span></h1></div>
-        <div id="extrasvalue"><h1>EXTRAS: <span id="extras">0</span></h1></div>
-      </div>
-
     </div>
-    <script src="./script.js"></script>
+
+    <div class="displaydiv">
+      <div id="targetdiv"><h1>TARGET: <span id="target"></span></h1></div>
+      <div id="reducedtarget"><h1>RUNS TO WIN: <span id="reducedtargetvalue"></span></h1></div>
+      <div id="ballsvalue"><h1>BALLS LEFT: <span id="ballsleft">60</span></h1></div>
+      <div id="wicketsvalue"><h1>WICKETS REMAINING: <span id="wicketsleft">10</span></h1></div>
+      <!-- <div id="extrasvalue"><h1>EXTRAS: <span id="extras">0</span></h1></div> -->
+    </div>
+
+  </div>
+  </div>
+
+    <!-- <script src="./script.js"></script> -->
+     <script src="./script2.js"></script>
 </body>
 </html>
