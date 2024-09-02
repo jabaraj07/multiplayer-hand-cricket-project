@@ -8,11 +8,33 @@
 </head>
 
 <body>
+
+  <div class="overlay" id="overlay">
+    <div class="overlaycontent">
+      <!-- <span><img class="overlayheadingimage" src="./confetti-cone-party-popper-celebration-cartoon-style-illustration-vector.jpg" ></span> -->
+      <div id="overlayheading">
+        <h2 id="message"> </h2>
+        <button id="clearoverlaybtn" onclick="clearoverlay()">CLOSE</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- <div class="overlay1" id="overlay1">
+    <div class="overlay1content">
+      <h3>Please Enter Atleast One Character To Continue</h3>
+      <form >
+      <input class="overlay1-input" id="overlay1-input" type="text" required placeholder="ENTER NAME">
+      <button id="overlay1btn" onclick="closeoverlay1(event)">CLOSE</button>
+      </form>
+    </div>
+  </div> -->
+
   <div class="toss-section" id="toss-section">
     <h1 style="text-align: center;margin-top: 50px;">choose head or tail</h1>
     <div class="headortail-div" ><button class="headbtn" onclick="toss('head')">HEAD</button><SPan></SPan><button class="tailbtn" onclick="toss('tail')">TAIL</button></div>
     <div class="result-div-for-choice"><h4 id="headortail"></h4></div>
   </div>
+
 
   <div class="complete-div" id="complete-div">
     <div class="main-div" id="main-div">
