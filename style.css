@@ -289,6 +289,13 @@ th,td{
   animation: bounceIn 1s ease-in-out;
   font-size: 30px;
 }
+#reqrunvalue{
+  width: 300px;
+  /* background-color: red; */
+  font-size: 15px;
+  display: none;
+  /* padding: 10px; */
+}
 @keyframes fadeIn {
   from {
       opacity: 0;
@@ -377,5 +384,3 @@ th,td{
   }
 
 }
-
-
