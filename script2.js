@@ -99,7 +99,7 @@ function handlenumber(value) {
     }
 
 
-    if (life == 0 || totalballs == 40) {
+    if (life == 0 || totalballs == 0) {
       if (buttonvalue != box2value) {
 
         finalscore = `${totalscore}`;
@@ -178,7 +178,7 @@ function handlenumber(value) {
       }
 
 
-      if (life == 0 || totalballs == 40) {
+      if (life == 0 || totalballs == 0) {
 
         finalscore = `${totalscore}`;
 
@@ -265,6 +265,8 @@ function handlenumber(value) {
 
           let playername = arr[currindx]
 
+          reqrun.innerText = 0 
+
           strikerate = ((count / balls) * 100).toFixed(0);
 
           createtable(playername,count,balls,Fourcount,Sixcount,strikerate);
@@ -289,6 +291,8 @@ function handlenumber(value) {
           // clonearr.splice(randomIndex, 1);
 
           let playername = arr[currindx]
+
+          reqrun.innerText = 0 
 
           strikerate = ((count / balls) * 100).toFixed(0);
 
@@ -315,7 +319,7 @@ function handlenumber(value) {
       overlaycount = 0
       // let playername = prompt("enter player name");
 
-      // let playername = arr[Math.floor(Math.random()*16)]
+      // let player = arr[Math.floor(Math.random()*16)]
     
       // let randomindex = [Math.floor(Math.random()*arr.length)]
       // let playername = arr[randomindex]
@@ -332,7 +336,6 @@ function handlenumber(value) {
       if (box2value == 6) {
         Sixcount--;
       }
-
       
         let playername = arr[currindx]
         currindx++
