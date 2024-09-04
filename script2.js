@@ -22,6 +22,7 @@ let playareasection = document.getElementById("complete-div");
 let overlay = document.getElementById("overlay")
 let reqrun = document.getElementById("reqrun")
 let reqrunvalue = document.getElementById("reqrunvalue")
+let lastten1 = document.getElementById("lastten1")
 // let overlay1 = document.getElementById("overlay1")
 // let overlay1input = document.getElementById("overlay1-input")
 // let overlay1btn = document.getElementById("overlay1btn")
@@ -39,11 +40,17 @@ Sixcount = 0;
 freeruns = 0;
 overlaycount = 0
 
-const arr = [
-  "Chris Gayle","Gill","Virat Kohli","Rohit Sharma","Kane Williamson","Steve Smith","Joe Root","Ben Stokes","AB de Villiers","Rishabh Pant"
+let arr = [
+  "Chris Gayle","Gill","Virat Kohli","Rohit Sharma","Kane Williamson","Steve Smith","Joe Root","Ben Stokes","AB de Villiers","Rishabh Pant","KL Rahul","Aiden Markram","Sunil Narine", "Mohammad Rizwan","Babar Azam","Shakib Al Hasan","Rashid Khan","Quinton de Kock","David Warner", "Eoin Morgan"
 ]
 
-let currindx = 0
+let clonearr = [...arr]
+
+let historysize = 10
+
+let history = []
+
+// let currindx = 0
 
 function handlenumber(value) {
   
@@ -72,6 +79,17 @@ function handlenumber(value) {
 
     box1.innerText = buttontext;
     box2.innerText = box2value;
+
+    if(history.length >= historysize){
+        history.shift()    
+    }
+    if(buttontext == box2value){
+          history.push("W")
+        }else{
+          history.push(buttonvalue)
+        }    
+
+    lastten1.innerText = history.join(" ")
 
     if(buttonvalue != box2value)
       {        
@@ -124,12 +142,15 @@ function handlenumber(value) {
 
     if (buttonvalue == box2value) {
       overlaycount = 0
-      let playername = prompt("enter player name");
-      // let arr = [
-      //   "Chris Gayle","Gill","Virat Kohli","Rohit Sharma","Kane Williamson","Steve Smith","Joe Root","Ben Stokes","AB de Villiers","Rishabh Pant","KL Rahul","Aiden Markram","Sunil Narine", "Mohammad Rizwan","Babar Azam"
-      // ]
+      // let playername = prompt("enter player name");
 
-      // let playername = arr[Math.floor(Math.random()*16)]
+      console.log(arr );
+  
+      let randindx = [Math.floor(Math.random()*arr.length)]
+
+      let playername = arr[randindx]
+
+      arr.splice(randindx, 1);
       
       if (buttonvalue == 4) {
         Fourcount--;
@@ -216,11 +237,16 @@ function handlenumber(value) {
 
     reqrun.innerText = (((runstowin)/totalballs)*6).toFixed(2)
 
-    // const arr = [
-    //   "Chris Gayle","Gill","Virat Kohli","Rohit Sharma","Kane Williamson","Steve Smith","Joe Root","Ben Stokes","AB de Villiers","Rishabh Pant"
-    // ]
+    if(history.length >= historysize){
+      history.shift()    
+  }
+  if(buttontext == box2value){
+        history.push("W")
+      }else{
+        history.push(box2value)
+      }    
 
-    // let currindx = 0
+  lastten1.innerText = history.join(" ")
 
     if(buttonvalue != box2value)
       {
@@ -253,17 +279,14 @@ function handlenumber(value) {
 
       if (buttonvalue != box2value) {
         if (life == 1) {
-          // let playername = prompt("enter player name");
-          // let arr = [
-          //   "Chris Gayle","Gill","Virat Kohli","Rohit Sharma","Kane Williamson","Steve Smith","Joe Root","Ben Stokes","AB de Villiers","Rishabh Pant","KL Rahul","Aiden Markram","Sunil Narine", "Mohammad Rizwan","Babar Azam"
-          // ]
-          // let clonearr = [...arr]
-    
-          // let playername = clonearr[Math.floor(Math.random()*clonearr.length)]
 
-          // clonearr.splice(randomIndex, 1);
+          // let playername = arr[currindx]
 
-          let playername = arr[currindx]
+          let randindx = [Math.floor(Math.random()*arr.length)]
+
+          let playername = arr[randindx]
+
+          arr.splice(randindx, 1);
 
           reqrun.innerText = 0 
 
@@ -277,20 +300,14 @@ function handlenumber(value) {
           isGameOver = true;
           resetbutton.style.display = "inline-block";
         } else {
-          // let playername = prompt("enter player name");
-          // let arr = [
-          //   "Chris Gayle","Gill","Virat Kohli","Rohit Sharma","Kane Williamson","Steve Smith","Joe Root","Ben Stokes","AB de Villiers","Rishabh Pant","KL Rahul","Aiden Markram","Sunil Narine", "Mohammad Rizwan","Babar Azam"
-          // ]
-    
-          // let playername = arr[Math.floor(Math.random()*16)]
 
-          // let clonearr = [...arr]
-    
-          // let playername = clonearr[Math.floor(Math.random()*clonearr.length)]
+          // let playername = arr[currindx]
 
-          // clonearr.splice(randomIndex, 1);
+          let randindx = [Math.floor(Math.random()*arr.length)]
 
-          let playername = arr[currindx]
+          let playername = arr[randindx]
+
+          arr.splice(randindx, 1);
 
           reqrun.innerText = 0 
 
@@ -308,26 +325,8 @@ function handlenumber(value) {
 
     }
 
-    // let randomindex = [Math.floor(Math.random()*arr.length)]
-    // let playername = arr[currindx]
-
-    // arr.splice(randomindex, 1);
-
-    // console.log(arr);
-
     if (buttonvalue == box2value) {
       overlaycount = 0
-      // let playername = prompt("enter player name");
-
-      // let player = arr[Math.floor(Math.random()*16)]
-    
-      // let randomindex = [Math.floor(Math.random()*arr.length)]
-      // let playername = arr[randomindex]
-
-      // arr.splice(randomindex, 1);
-
-      // console.log(arr);
-      
 
       if (box2value == 4) {
         Fourcount--;
@@ -337,8 +336,14 @@ function handlenumber(value) {
         Sixcount--;
       }
       
-        let playername = arr[currindx]
-        currindx++
+        // let playername = arr[currindx]
+        // currindx++
+       
+          let randindx = [Math.floor(Math.random()*arr.length)]
+
+          let playername = arr[randindx]
+
+          arr.splice(randindx, 1);
 
         count = count - `${box2value}`;
         runstowin = parseInt(runstowin) + parseInt(box2value);
@@ -415,15 +420,14 @@ function handlenumber(value) {
 
         finalscore = `${totalscore}`;
 
-        // let playername = prompt("enter player name");
-        // let arr = [
-        //   "Chris Gayle","Gill","Virat Kohli","Rohit Sharma","Kane Williamson","Steve Smith","Joe Root","Ben Stokes","AB de Villiers","Rishabh Pant","KL Rahul","Aiden Markram","Sunil Narine", "Mohammad Rizwan","Babar Azam"
-        // ]
-  
-        // let playername = arr[Math.floor(Math.random()*16)]
+        let randindx = [Math.floor(Math.random()*arr.length)]
 
-        let playername = arr[currindx]
-        currindx++
+        let playername = arr[randindx]
+
+        arr.splice(randindx, 1);
+
+        // let playername = arr[currindx]
+        // currindx++
 
         strikerate = ((count / balls) * 100).toFixed(0);
 
@@ -444,15 +448,14 @@ function handlenumber(value) {
 
       overlaycount = 0
 
-      // let playername = prompt("enter player name");
-      // let arr = [
-      //   "Chris Gayle","Gill","Virat Kohli","Rohit Sharma","Kane Williamson","Steve Smith","Joe Root","Ben Stokes","AB de Villiers","Rishabh Pant","KL Rahul","Aiden Markram","Sunil Narine", "Mohammad Rizwan","Babar Azam"
-      // ]
+      let randindx = [Math.floor(Math.random()*arr.length)]
 
-      // let playername = arr[Math.floor(Math.random()*16)]
+      let playername = arr[randindx]
 
-      let playername = arr[currindx]
-      currindx++
+      arr.splice(randindx, 1);
+
+      // let playername = arr[currindx]
+      // currindx++
 
       if (box2value == 4) {
         Fourcount--;
@@ -565,7 +568,14 @@ function handlenumber(value) {
       reducedtargetvalue.innerText = 0;
       if (buttonvalue != box2value) {
         if (life == 1) {
-          let playername = prompt("enter player name");
+          // let playername = prompt("enter player name");
+
+          let randindx = [Math.floor(Math.random()*arr.length)]
+
+          let playername = arr[randindx]
+
+          arr.splice(randindx, 1);
+
           strikerate = ((count / balls) * 100).toFixed(0);
 
           createtable(playername,count,balls,Fourcount,Sixcount,strikerate);
@@ -577,7 +587,13 @@ function handlenumber(value) {
           headortail.innerHTML = "";
           resetbutton.style.display = "inline-block";
         } else {
-          let playername = prompt("enter player name");
+          // let playername = prompt("enter player name");
+
+          let randindx = [Math.floor(Math.random()*arr.length)]
+
+          let playername = arr[randindx]
+
+          arr.splice(randindx, 1);
 
           strikerate = ((count / balls) * 100).toFixed(0);
 
@@ -603,7 +619,13 @@ function handlenumber(value) {
         Sixcount--;
       }
 
-      let playername = prompt("enter player name");
+      // let playername = prompt("enter player name");
+
+      let randindx = [Math.floor(Math.random()*arr.length)]
+
+      let playername = arr[randindx]
+
+      arr.splice(randindx, 1);
 
       if(playername.trim() === ''){
         count = count - `${buttonvalue}`;
@@ -694,6 +716,9 @@ function reset() {
   overlaycount = 0
   currindx = 0
   reqrunvalue.style.display = "none"
+  arr = clonearr
+  history = []
+  lastten1.innerText = ''
 
 
   isGameOver = false;
@@ -749,6 +774,8 @@ function secondplay() {
   balls = 0;
   overlaycount = 0
   reqrunvalue.style.display = "inline-block"
+  history = []
+  lastten1.innerText = ''
   // freeruns = 0
   // extras.innerText = freeruns
 }
@@ -771,6 +798,8 @@ function secondinnings1() {
   Sixcount = 0;
   overlaycount = 0
   reqrunvalue.style.display = "inline-block"
+   history = []
+   lastten1.innerText = ''
   // freeruns = 0
   // extras.innerText = freeruns
 }
